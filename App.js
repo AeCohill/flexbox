@@ -1,22 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { View, StatusBar } from "react-native";
+import styles from "./styles";
+import Box from "./Box";
+
+const boxes = new Array(10).fill(null).map((v, i) => i + 1);
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text style = {styles.text}>
-        HI my name is Adam Cogill, and i am a mobile developer.
-      </Text>
-      <StatusBar style="auto" />
+      <StatusBar hidden={false} />
+      {boxes.map((i) => (
+        <Box key={i}>#{i}</Box>
+      ))}
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
